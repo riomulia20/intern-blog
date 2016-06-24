@@ -1,0 +1,25 @@
+<h1>Listing articles</h1>
+<table class="table table-striped">
+	<tr>
+		<th>Title</th>
+		<th>Text</th>
+	</tr>
+
+	<% @articles.each do |article| %>
+		<tr>
+			<td><h5><%= article.title %></h5></td>
+			<td><h5><%= article.text %></h5></td>
+			<td><h5><%= link_to 'Show', article_path(article) %></h5></td>
+      		<td><h5><%= link_to 'Edit', edit_article_path(article) %></h5></td>
+      		<td><h5><%= button_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></h5></td>
+		</tr>
+	<% end %>
+</table>
+
+<br>
+<button type="button" class="btn btn-default">
+<%= link_to 'Create New article', new_article_path %>
+</button>
+<button type="button" class="btn btn-default">
+<%= link_to 'Back to Menu', welcome_index_path %>
+</button>
